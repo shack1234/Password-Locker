@@ -128,7 +128,7 @@ def main():
                 while True:
                     print("*" * 50)
                     print(
-                        "Use this shortcuts to choose your tasks:\n1-Create a Credential\n2-Display Credentials\n3-Login\n4-Delete Credential\n5-E"
+                        "Use this shortcuts to choose your tasks:\n1-Create a Credential\n2-Display Credentials\n3-Login\n4-Delete Credential\n5-Exit"
                     )
                     short_code = input("Choose your task: ").lower().strip()
                     print("*" * 50)
