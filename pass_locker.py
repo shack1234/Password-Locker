@@ -72,3 +72,47 @@ def delete_credential(self):
     Function to delete a Credentials from credentials list
     """
     credentials.delete_credentials()
+
+
+def main():
+    print(" ")
+    print(" Hello! Welcome to Password Locker.")
+    while True:
+        print(" ")
+        print("*" * 50)
+        print(
+            "Use this shortcuts to choose your tasks: \n 1-Create an Account \n 2-Log In \n 3-Exit"
+        )
+        short_code = input("Choose your task: ").lower().strip()
+        if short_code == "3":
+            print("~" * 52)
+            print("Thanks for using Password Locker")
+            print("~" *52)
+            break
+        elif short_code == "1":
+            print("*" * 50)
+            print(" ")
+            print("To create a new account:")
+            fullname = input("Enter your fullname: ").strip()
+            username = input("Enter your username :").strip()
+            print(" ")
+            print(
+              "Please choose an option for entering a password:\n1-Create your own password\n2-Use Random generated password"
+            )
+            psw_choice = input("Choose your option:").lower().strip()
+            print("*" *35)
+            if psw_choice == "1":
+                print(" ")
+                password = input("Enter your password: ").strip()
+                
+            elif psw_choice == "2":
+                password = generate_password()
+                
+            else:
+                print("Oops! Something went wrong. Try again.")
+            save_users(create_user(fullname, username, password))
+            print(" ")
+            print(
+                f"\nNew Account Created for:\t\nFullname:{fullname }\nUsername:{username}\npassword:{password}"
+            )
+       
