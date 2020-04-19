@@ -9,3 +9,10 @@ def create_user(fullname, username, password):
 	"""
     new_user = User(fullname, username, password)
     return new_user
+
+def save_users(user):
+    """
+	Function to save a new user account
+	"""
+    User.save_users(user)
+
