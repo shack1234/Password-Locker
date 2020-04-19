@@ -16,3 +16,10 @@ def save_users(user):
 	"""
     User.save_users(user)
 
+
+def verify_user(username, password):
+    """
+	Function that verifies the existance of the user before creating credentials
+	"""
+    checking_user = Credential.check_user(username, password)
+    return checking_user
