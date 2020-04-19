@@ -59,3 +59,10 @@ def copy_credential(password):
 	Function to copy a credentials details to the clipboard
 	"""
     return Credential.copy_credential(site_name)
+    #testing 
+
+def find_credential(user_name):
+    """
+    Function that finds a Credentials by an account name and returns the Credentials that belong to that account
+    """
+    return Credential.find_credential(user_name)
