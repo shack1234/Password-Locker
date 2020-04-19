@@ -66,3 +66,9 @@ def find_credential(user_name):
     Function that finds a Credentials by an account name and returns the Credentials that belong to that account
     """
     return Credential.find_credential(user_name)
+
+def delete_credential(self):
+    """
+    Function to delete a Credentials from credentials list
+    """
+    credentials.delete_credentials()
