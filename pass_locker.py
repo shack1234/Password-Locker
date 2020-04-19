@@ -31,3 +31,10 @@ def generate_password():
     random_pass = Credential.generate_password()
     return random_pass
 
+
+def create_credential(user_name, site_name, password):
+    """
+	Function to create a new credential
+	"""
+    new_credential = Credential(user_name, site_name, password)
+    return new_credential
