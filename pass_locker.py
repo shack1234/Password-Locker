@@ -128,7 +128,7 @@ def main():
                 while True:
                     print("*" * 50)
                     print(
-                        "Use this shortcuts to choose your tasks:\n1-Create a Credential\n2-Display Credentials\n3-Login\n4-Delete Credential\n5-Exit"
+                        "Use this shortcuts to choose your tasks:\n1-Create a Credential\n2-Display Credentials\n3-Login\n4-Delete Credential\n5-E"
                     )
                     short_code = input("Choose your task: ").lower().strip()
                     print("*" * 50)
@@ -169,4 +169,54 @@ def main():
                             f"\nCredential Created:\nUsername:{user_name}\nSite Name:{site_name}\nPassword:{password}"
                         )
                         print(" ")
-                    
+                    elif short_code == "2":
+                        print("~"* 50)
+                        if display_credentials(user_name):
+                            print("Your credentials")
+                            for credential in display_credentials(user_name):
+                                print(
+                                    f"\nSite Name:{credential.site_name}\nUsername:{credential.user_name} \nPassword:{credential.password}"
+                                )
+                            print("~"*50)
+                        else:
+                            print(" ")
+                            print("You don't seem to have any credentials saved yet")
+                            print(" ")
+                    elif short_code == "3":
+                        print("*" * 50)
+                        print(" ")
+                        print("To Login, Enter your account details:")
+                        user_name = input("Enter your username : ").strip()
+                        password = str(input("Enter your password : "))
+                        user_cred_exists = verify_user(user_name, password)
+                        if user_cred_exists == user_name:
+
+                            print(" ")
+                            print(f"Welcome  to {site_name}")
+                            print(" ")
+                    if short_code == "4":
+                        print("To Delete a Credentials :")
+                        search_name = input("Enter your username : ").strip()
+                        if find_credential(search_name):
+                            search_credential = find_credential(search_name)
+                            print("_"*50)
+                            search_credential.delete_credentials()
+                            print('\n')
+                            print(f"Credential for {search_credential.user_name} has been successfully deleted!!!")
+                            print('\n')
+                        else:
+                            print("No credential saved.Add a credential first and Try again")
+            else:
+                print(" ")
+                print("Oops! Wrong details entered. Try again or Create an Account.")
+        else:
+            print("*" * 50)
+            print(" ")
+            print("Oops! Something went wrong!. Try again.")
+
+
+if __name__ == "__main__":
+    main()
+
+
+           
