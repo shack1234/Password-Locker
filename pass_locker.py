@@ -94,7 +94,7 @@ def main():
             print(" ")
             print("To create a new account:")
             fullname = input("Enter your fullname: ").strip()
-            username = input("Enter your username :").strip()
+            username = input("Enter your username : ").strip()
             print(" ")
             print(
               "Please choose an option for entering a password:\n1-Create your own password\n2-Use Random generated password"
@@ -111,10 +111,12 @@ def main():
             else:
                 print("Oops! Something went wrong. Try again.")
             save_users(create_user(fullname, username, password))
-            print(" ")
+            print("~"*50)
+            print("Account created successfully!!!")
             print(
-                f"\nNew Account Created for:\t\nFullname:{fullname }\nUsername:{username}\npassword:{password}"
+                f"New Account Created for:\nFullname:{fullname }\nUsername:{username}\npassword:{password}"
             )
+            print("~"*50)
         elif short_code == "2":
             print("*" * 50)
             print("To Login, Enter your account details:")
@@ -139,9 +141,9 @@ def main():
                         break
                     elif short_code == "1":
                         print(" ")
-                        print("Enter your credential details:")
+                        print("To create a credential, provide the following details:")
                         user_name = input("Enter the username: ").strip()
-                        site_name = input("Enter your site name :").strip()
+                        site_name = input("Enter site name : ").strip()
                         while True:
                             print(" ")
                             print("*" * 50)
@@ -166,18 +168,18 @@ def main():
                         )
                         print(" ")
                         print(
-                            f"\nCredential Created:\nUsername:{user_name}\nSite Name:{site_name}\nPassword:{password}"
+                            f"Credential Created:\nUsername:{user_name}\nSite Name:{site_name}\nPassword:{password}"
                         )
                         print(" ")
                     elif short_code == "2":
-                        print("~"* 50)
                         if display_credentials(user_name):
-                            print("Your credentials")
+                            print("~"*52)
+                            print("Your saved credentials are:-")
                             for credential in display_credentials(user_name):
                                 print(
                                     f"\nSite Name:{credential.site_name}\nUsername:{credential.user_name} \nPassword:{credential.password}"
                                 )
-                            print("~"*50)
+                            print("~"*52)
                         else:
                             print(" ")
                             print("You don't seem to have any credentials saved yet")
@@ -185,7 +187,7 @@ def main():
                     elif short_code == "3":
                         print("*" * 50)
                         print(" ")
-                        print("To Login, Enter your account details:")
+                        print("To Login,Enter your account details:")
                         user_name = input("Enter your username : ").strip()
                         password = str(input("Enter your password : "))
                         user_cred_exists = verify_user(user_name, password)
