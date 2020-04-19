@@ -23,3 +23,11 @@ def verify_user(username, password):
 	"""
     checking_user = Credential.check_user(username, password)
     return checking_user
+
+def generate_password():
+    """
+	Function to generate a password automatically
+	"""
+    random_pass = Credential.generate_password()
+    return random_pass
+
