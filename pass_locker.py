@@ -115,4 +115,58 @@ def main():
             print(
                 f"\nNew Account Created for:\t\nFullname:{fullname }\nUsername:{username}\npassword:{password}"
             )
-       
+        elif short_code == "2":
+            print("*" * 50)
+            print("To Login, Enter your account details:")
+            username = input("Enter your username : ").strip()
+            password = str(input("Enter your password : "))
+            user_exists = verify_user(username, password)
+            if user_exists == username:
+                print("~"*52)
+                print(f"Welcome {username}.Please choose an option to continue.")
+                print("~"*52)
+                while True:
+                    print("*" * 50)
+                    print(
+                        "Use this shortcuts to choose your tasks:\n1-Create a Credential\n2-Display Credentials\n3-Login\n4-Delete Credential\n5-Exit"
+                    )
+                    short_code = input("Choose your task: ").lower().strip()
+                    print("*" * 50)
+                    if short_code == "5":
+                        print("~"*30)
+                        print(f"Goodbye  {username}")
+                        print("~"* 30)
+                        break
+                    elif short_code == "1":
+                        print(" ")
+                        print("Enter your credential details:")
+                        user_name = input("Enter the username: ").strip()
+                        site_name = input("Enter your site name :").strip()
+                        while True:
+                            print(" ")
+                            print("*" * 50)
+                            print(
+                                "Please choose an option for entering a password:\n1-Create your own password\n2-Use Random generated password\n3-Exit"
+                            )
+                            psw_choice = input("Choose your task: ").lower().strip()
+                            print("*" * 50)
+                            if psw_choice == "1":
+                                print(" ")
+                                password = input("Enter your password: ").strip()
+                                break
+                            elif psw_choice == "2":
+                                password = generate_password()
+                                break
+                            elif psw_choice == "3":
+                                break
+                            else:
+                                print("Oops! Something went wrong. Try again.")
+                        save_credentials(
+                            create_credential(user_name, site_name, password)
+                        )
+                        print(" ")
+                        print(
+                            f"\nCredential Created:\nUsername:{user_name}\nSite Name:{site_name}\nPassword:{password}"
+                        )
+                        print(" ")
+                    
