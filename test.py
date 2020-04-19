@@ -177,3 +177,6 @@ class TestCredentials(unittest.TestCase):
 		self.assertTrue(credential_is_found)
 
 	
+
+if __name__ == '__main__':
+	unittest.main()
